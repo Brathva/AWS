@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Log-in Website </title>
+<link href ="../static/css/style.css" rel="stylesheet" type="text/css">
+
+<style>
+
+form{
+        background-color: lightgray;
+        border-color: ghostwhite;
+}
+.savebtn{
+	background-color: black;
+	color: white;
+	border:none;
+	cursor: pointer;
+	padding: 5px 10px;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 15px;
+	border-radius:10px;
+}
+
+.loginbtn:hover
+{
+    background-color: firebrick;
+}
+label {
+    font: normal 15px Helvetica !important;
+    width: 200px;
+    color: darkred;
+}
+
+</style>
+</head>
+<body bgcolor="black">
+
+	<header>
+			
+		<form action="Create" method = "post">
+			<ul>
+				<li>
+						<label for="firstname"> First name	: </label>
+						<input type="text" maxlength="20" id="firstname" name= "firstname" required>
+                        <label>max 20 characters</label><br><br>
+				</li>
+				<li>
+						<label for="lastname"> Last Name	: </label>
+						<input type="text" maxlength="20" id="lastname" name="lastname" required>
+                        <label>max 20 characters</label><br><br>
+				</li>
+				<li>
+						<label for="email"> E-mail	: </label>
+						<input type="email" id="email" name="email" required>
+                        <label>Enter in standard format</label><br><br>
+				</li>
+                <li>
+						<label for="username"> User Name	: </label>
+						<input type="text" maxlength="10" id="username" name="username" required>
+                        <label>max 10 characters</label><br><br>
+				</li>
+                <li>
+						<label for="pwd"> Password	: </label>
+						<input type="password" minlength="4" id="pwd" name="pwd" required>
+                        <label>max 10 characters</label><br><br>
+				</li>
+				<li class="button">
+						<button class="savebtn" type="submit">Save</button>
+				</li>
+                {% if us_exist == 'true' %}
+	            <p class="errormsg"><b>Username already taken!</b></p>
+	            {% endif %}
+                {% if em_exist == 'true' %}
+	            <p class="errormsg"><b>Email already registered!</b></p>
+	            {% endif %}
+                {% if ext == 'false' %}
+	            <p class="errormsg"><b>Please upload .txt file only</b></p>
+	            {% endif %}
+			</ul>
+		</form>
+	</header>
+</body>
+</html>

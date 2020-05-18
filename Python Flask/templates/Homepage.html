@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Business Website </title>
+<link href ="../static/css/style.css" rel="stylesheet" type="text/css">
+
+<style>
+form{
+    background-color: lightgray;
+    border-color: ghostwhite;
+}
+.loginbtn{
+	background-color:black ;
+	color: white;
+	border:none;
+	cursor: pointer;
+	padding: 5px 10px;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 15px;
+	border-radius:10px;
+}
+
+.loginbtn:hover
+{
+    background-color: firebrick;
+    border-color: ghostwhite;
+}
+label {
+    font: normal 15px Helvetica !important;
+    color: darkred;
+}
+field{
+    border-color: brown;
+}
+
+</style>
+</head>
+<body bgcolor="black">
+
+	<header>
+			
+		<form action="." method = "post">
+            <div class="container">
+			<ul>
+				<li>
+						<label for="name"> User name	: </label>
+						<input type="text" id="username" name= "username" required><br><br>
+				</li>
+				<li>
+						<label for="pwd"> Password	: </label>
+						<input class="field" type="password" id="pass" name="password" required><br><br>
+				</li>
+
+                <button class="loginbtn" type="submit" style="margin-left:95px">Login</button>
+				<li class="button">
+                    <br><label><b>New User?</b></label>
+						<button class= "loginbtn" type="submit" onclick="window.location='/Create';">Create User</button>
+				</li>
+                {% if us_exist == 'false' %}
+	            <p class="errormsg"><b>Username not registered! Please register</b></p>
+	            {% endif %}
+                {% if us_pwd_exist == 'false' %}
+	            <p class="errormsg"><b>Username/Password mismatch!!</b></p>
+	            {% endif %}
+                {% if insertion == 'true' %}
+	            {% endif %}
+
+			</ul>
+            </div>
+		</form>
+	</header>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>  
+<html lang="en">
+<body border="none" bgcolor="black">
+	    <table class="center" bgcolor="#d3d3d3">
+	        <tr>
+                <td><b>First name:</b></td>
+                <td>{{firstname}}</td>
+	        </tr>
+            <tr>
+	            <td><b>Last name: </b></td>
+	            <td>{{lastname}}</td>
+	        </tr>
+	        <tr>
+	            <td><b>Email ID:</b></td>
+	            <td>{{email}}</td>
+	        </tr>
+	        <tr>
+	            <td><b>Uploaded FileName:</b></td>
+	            <td>{{ Filename }}</td>
+	        </tr>
+	        <tr>
+	            <td><b>Upload Files Word Count:</b></td>
+	            <td>{{ wordcount }}</td>
+            </tr>
+            <tr>
+                <td><b>File to Download </b></td>
+	            <td><button class="downloadbtn" type="button" onclick="window.location='/files/{{Filename}}';" style = "margin-left: 2%;">Download Here</button></td></tr>
+	</table>
+	
+
+<form action="update" method="post" enctype="multipart/form-data">
+ <b>Note: Please upload .txt files only and click to view the details.<br></b>
+    <br>Select File to upload:
+    <input type="file" name="file" accept = "application/txt" required>
+    <input type="submit" value="Upload File" name= "file">
+    <input type="hidden" id="username" name="username" value={{ username }}>
+
+    {% if ext_iss == 'false' %}
+	            <p class="errormsg"><b>Please upload .txt files</b></p>
+    {% endif %}
+	
+</form>
+<button class ="button" type="reset" onclick="location.href='/'">
+    Back
+</button>
+<style>
+.button
+{
+   height:20px; 
+    width:100px; 
+    margin: 10px -60px; 
+    position:relative;
+    left:50%;
+	top:70%;
+}
+table.center {
+    margin-left:auto;
+    margin-right:auto;
+    font: 1em sans-serif;
+  /* Center the form on the page */
+  margin: 0 auto;
+  width: 700px;
+  margin-top: 300px;
+  /* Form outline */
+  padding: 1em;
+  border: 3px solid #CCC;
+  border-radius: 1em;
+}
+
+form {
+  /* Center the form on the page */
+  margin: 0 auto;
+  width: 700px;
+  margin-top: 50px;
+  background-color: lightgray;
+  /* Form outline */
+  padding: 1em;
+  border: 3px solid;
+  border-radius: 3em;
+    border-color: ghostwhite;
+}
+
+</style>
+	</body>
+	</html>
